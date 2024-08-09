@@ -16,7 +16,4 @@ public class ProductsResponse {
     private int skip;
     private int limite;
 
-    public List<Product> getProducts(){
-        return products;
-    }
 }

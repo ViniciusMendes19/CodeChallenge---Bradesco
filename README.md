@@ -4,7 +4,9 @@ Esta é uma aplicação Java que utiliza Feign Client para consumir uma API exte
 
 ## Pré-requisitos
 Java 17
+
 IDE (Utilizei IntelliJ)
+
 Maven (para build e gerenciamento de dependências)
 
 ## Configuração

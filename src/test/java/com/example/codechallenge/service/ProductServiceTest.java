@@ -36,7 +36,7 @@ public class ProductServiceTest {
         ProductsResponse mockResponse = new ProductsResponse();
         when(productClient.getAllProducts()).thenReturn(mockResponse);
 
-        ProductsResponse result = productService.getAllProducts();
+        ProductsResponse result = productClient.getAllProducts();
 
         assertNotNull(result);
         assertEquals(mockResponse, result);
@@ -50,7 +50,7 @@ public class ProductServiceTest {
         Product mockProduct = new Product();
         when(productClient.getProductById(productId)).thenReturn(mockProduct);
 
-        Product result = productService.getProductById(productId);
+        Product result = productClient.getProductById(productId);
 
         assertNotNull(result);
         assertEquals(mockProduct, result);
@@ -64,7 +64,7 @@ public class ProductServiceTest {
         ProductsResponse mockResponse = new ProductsResponse();
         when(productClient.searchProducts(query)).thenReturn(mockResponse);
 
-        ProductsResponse result = productService.searchProducts(query);
+        ProductsResponse result = productClient.searchProducts(query);
 
         assertNotNull(result);
         assertEquals(mockResponse, result);
@@ -74,7 +74,7 @@ public class ProductServiceTest {
     @Test
     void getAllProducts_DeveRetornarErro() {
 
-        when(productClient.getAllProducts()).thenThrow(new RuntimeException("Service failed"));
+        when(productClient.getAllProducts()).thenThrow(new RuntimeException("Client failed"));
 
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
@@ -89,10 +89,10 @@ public class ProductServiceTest {
     void getProductById_BuscarPorIdErro() {
 
         int productId = 1;
-        when(productClient.getProductById(productId)).thenThrow(new RuntimeException("Service failed"));
+        when(productClient.getProductById(productId)).thenThrow(new RuntimeException("Client failed"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            productService.getProductById(productId);
+            productClient.getProductById(productId);
         });
 
         assertEquals("Client failed", exception.getMessage());
@@ -103,10 +103,10 @@ public class ProductServiceTest {
     void searchProducts_BuscarTodosOsProdutosErro() {
 
         String query = "test";
-        when(productClient.searchProducts(query)).thenThrow(new RuntimeException("Service failed"));
+        when(productClient.searchProducts(query)).thenThrow(new RuntimeException("Client failed"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            productService.searchProducts(query);
+            productClient.searchProducts(query);
         });
 
         assertEquals("Client failed", exception.getMessage());

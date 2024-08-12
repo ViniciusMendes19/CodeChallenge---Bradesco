@@ -74,7 +74,7 @@ public class ProductControllerTest {
     @Test
     void getAllProducts_DeveRetornarErro() {
 
-        when(productService.getAllProducts()).thenThrow(new RuntimeException("Controller failed"));
+        when(productService.getAllProducts()).thenThrow(new RuntimeException("Service failed"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             productController.getAllProducts();
@@ -88,7 +88,7 @@ public class ProductControllerTest {
     void getProductById_BuscarPorIdErro() {
 
         int productId = 1;
-        when(productService.getProductById(productId)).thenThrow(new RuntimeException("Controller failed"));
+        when(productService.getProductById(productId)).thenThrow(new RuntimeException("Service failed"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             productController.getProductById(productId);
@@ -102,7 +102,7 @@ public class ProductControllerTest {
     void searchProducts_BuscarTodosOsProdutosErro() {
 
         String query = "test";
-        when(productService.searchProducts(query)).thenThrow(new RuntimeException("Controller failed"));
+        when(productService.searchProducts(query)).thenThrow(new RuntimeException("Service failed"));
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             productController.searchProducts(query);

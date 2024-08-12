@@ -1,4 +1,4 @@
-#CodeChallenge- Bradesco
+# CodeChallenge- Bradesco
 
 Esta é uma aplicação Java que utiliza Feign Client para consumir uma API externa de produtos do DummyJSON. A aplicação expõe três endpoints para buscar todos os produtos, buscar um produto específico por ID, e buscar produtos com base em um parâmetro de pesquisa.
 

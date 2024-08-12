@@ -12,11 +12,16 @@ public class ProductService {
     @Autowired
     private ProductClient productsClient;
 
-    public ProductsResponse getAllProducts(){
+    public ProductsResponse getAllProducts() {
         return productsClient.getAllProducts();
     }
 
-    public Product getProductById(int id){
+    public Product getProductById(int id) {
         return productsClient.getProductById(id);
     }
+
+    public ProductsResponse searchProducts(String query) {
+        return productsClient.searchProducts(query);
+    }
+
 }
